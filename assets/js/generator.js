@@ -9,8 +9,23 @@ let generator = function(userInfo) {
   // get the first letter of the user's first name
   // get a color corresponding to that name
   // do the same thing for the last name and middle names
-
   // for the date of birth
+var firstPartOfEGName ="";
+var firstLetterOfFirstName= userInfo.firstName[0];
+firstPartOfEGName = firstLetterOfFName[firstLetterOfFirstName];
+
+
+var secondPartOfEGName ="";
+var firstLetterOfLastName = userInfo.lastName[0];
+secondPartOfEGName = firstLetterOfLName[firstLetterOfLastName];
+
+var fourthPartOfEGName ="";
+var firstLetterOfMiddleName = userInfo.middleName[0];
+fourthPartOfEGName = firstLetterOfMName[firstLetterOfMiddleName];
+
+var thirdPartOfEGName = "";
+var dayWhenBorn  = userInfo.dayOfMonthOfBirthday;
+thirdPartOfEGName = dayOfBirth[dayWhenBorn -1];
 }
 
 generator({firstName: "Masha", middleName: "Mad Eye", lastName: "Lifshin", dayOfMonthOfBirthday: "2", })
