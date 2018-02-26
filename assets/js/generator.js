@@ -26,6 +26,9 @@ fourthPartOfEGName = firstLetterOfMName[firstLetterOfMiddleName];
 var thirdPartOfEGName = "";
 var dayWhenBorn  = userInfo.dayOfMonthOfBirthday;
 thirdPartOfEGName = dayOfBirth[dayWhenBorn -1];
+  
+var fullEGName = firstPartOfEGName + " " + secondPartOfEGName + " " + thirdPartOfEGName + " " + fourthPartOfEGName;
+  console.log(fullEGName);
 }
 
 generator({firstName: "Masha", middleName: "Mad Eye", lastName: "Lifshin", dayOfMonthOfBirthday: "2", })
