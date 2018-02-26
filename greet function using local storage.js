@@ -1,9 +1,9 @@
 function greet(){
-   name = localStorage.getItem("eg_name");
+   name = localStorage.getItem("EG_name");
    if (name == null || name == "null"){
      alert("Hi, Stranger!");
      name = prompt("What is your name?");
-     localStorage.setItem("name", name);
+     localStorage.setItem("EG_name", name);
    } else {
      alert ("Hi, " + name + "!");
    } // end greet
