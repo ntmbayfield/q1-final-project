@@ -1,40 +1,44 @@
+var count = 2;
+function validate() {
+var un = document.myform.username.value;
+var pw = document.myform.pword.value;
+var valid = false;
 
+var unArray = ["Philip", "George", "Sarah", "Michael"];  // as many as you like - no comma after final entry
+var pwArray = ["Password1", "Password2", "Password3", "Password4"];  // the corresponding passwords;
 
-document.addEventListener('DOMContentLoaded', () => {
-+  login();
-+})
-+
-+function login() {
-+  getInfo();
-+
-+  document.addEventListener('submit', (event) => {
-+    event.preventDefault();
-+
-+    let userObj = {};
-+    let name = document.getElementById('inputEG_name');
-+    let password = document.getElementById('inputPassword');
-+    let isRemembered = event.target[2].checked;
-+    userObj.name = name.value;
-+    userObj.password = password.value;
-+    userObj.isRemembered = isRemembered;
-+
-+    // store user data into localStorage
-+    localStorage.setItem('USERS_SAVED', JSON.stringify(userObj));
-+
-+    // redirects the page to puzzle.html
-+    document.location = 'profile.html';
-+  })
-+
-+}
-+
-+function getInfo() {
-+  let user = JSON.parse(localStorage.getItem('USERS_SAVED')) || false;
-+  if (user.isRemembered) {
-+    let nameSaved = document.getElementById('inputEG_name');
-+    let passwordSaved = document.getElementById('inputPassword');
-+    let isRememberedSaved = document.getElementById('remember');
-+    nameSaved.value = user.name;
-+    passwordSaved.value = user.password;
-+    isRememberedSaved.setAttribute('checked', user.isRemembered);
-+  }
-+}
+for (var i=0; i <unArray.length; i++) {
+if ((un == unArray[i]) && (pw == pwArray[i])) {
+valid = true;
+break;
+}
+}
+
+if (valid) {
+alert ("Login was successful");
+window.location = "http://www.google.com";
+return false;
+}
+
+var t = " tries";
+if (count == 1) {t = " try"}
+
+if (count >= 1) {
+alert ("Invalid username and/or password.  You have " + count + t + " left.");
+document.myform.username.value = "";
+document.myform.pword.value = "";
+setTimeout("document.myform.username.focus()", 25);
+setTimeout("document.myform.username.select()", 25);
+count --;
+}
+
+else {
+alert ("Still incorrect! You have no more tries left!");
+document.myform.username.value = "No more tries allowed!";
+document.myform.pword.value = "";
+document.myform.username.disabled = true;
+document.myform.pword.disabled = true;
+return false;
+}
+
+}
